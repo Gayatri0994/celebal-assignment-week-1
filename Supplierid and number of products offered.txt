@@ -1,0 +1,4 @@
+SELECT p.supplier_id, COUNT(*) AS number_of_products
+FROM products p
+GROUP BY p.supplier_id
+ORDER BY p.supplier_id;
