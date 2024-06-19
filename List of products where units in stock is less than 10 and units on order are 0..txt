@@ -1,0 +1,4 @@
+SELECT *
+FROM products
+WHERE units_in_stock < 10
+AND units_on_order = 0;
