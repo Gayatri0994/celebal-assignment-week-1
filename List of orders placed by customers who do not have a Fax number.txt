@@ -1,0 +1,9 @@
+SELECT o.order_id, o.order_date, c.customer_id, c.company_name
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+LEFT JOIN (
+    SELECT customer_id
+    FROM customers
+    WHERE fax IS NOT NULL AND TRIM(fax) <> ''
+) AS customers_with_fax ON c.customer_id = customers_with_fax.customer_id
+WHERE customers_with_fax.customer_id IS NULL;
