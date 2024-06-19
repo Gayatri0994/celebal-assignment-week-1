@@ -1,0 +1,5 @@
+SELECT o.order_id, SUM(od.quantity * od.unit_price) AS order_total
+FROM orders o
+JOIN order_details od ON o.order_id = od.order_id
+GROUP BY o.order_id
+HAVING SUM(od.quantity * od.unit_price) > 200;
