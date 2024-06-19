@@ -1,0 +1,4 @@
+SELECT c.contact_name, COUNT(o.order_id) AS number_of_orders
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.contact_name;
